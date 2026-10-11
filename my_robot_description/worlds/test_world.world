@@ -1,0 +1,130 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="default">
+    <!-- ========================================== -->
+    <!-- Physics Engine Configuration (ODE)         -->
+    <!-- ========================================== -->
+    <physics type="ode">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+
+    <!-- ========================================== -->
+    <!-- Environmental Lighting and Ground Plane    -->
+    <!-- ========================================== -->
+    <include><uri>model://sun</uri></include>
+    <include><uri>model://ground_plane</uri></include>
+
+    <!-- ========================================== -->
+    <!-- Target Object: Dynamic Red Target Cube     -->
+    <!-- ========================================== -->
+    <model name="red_target">
+      <pose>2.0 0.0 0.1 0 0 0</pose>
+      <static>false</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.4 0.4 0.4</size></box></geometry>
+          <material>
+            <ambient>1.0 0.0 0.0 1.0</ambient>
+            <diffuse>1.0 0.0 0.0 1.0</diffuse>
+          </material>
+        </visual>
+        <inertial>
+          <mass>0.5</mass>
+          <inertia>
+            <ixx>0.001</ixx> <ixy>0</ixy> <ixz>0</ixz>
+            <iyy>0.001</iyy> <iyz>0</iyz> <izz>0.001</izz>
+          </inertia>
+        </inertial>
+      </link>
+    </model>
+
+    <!-- ========================================== -->
+    <!-- Enclosed Arena Boundaries (8m x 6m)        -->
+    <!-- ========================================== -->
+
+    <!-- Left Boundary Wall (Y = 3.0m, Length = 8m) -->
+    <model name="wall_left">
+      <pose>1.0 3.0 0.5 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>8 0.1 1</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>8 0.1 1</size></box></geometry>
+          <material><ambient>0.7 0.7 0.7 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Right Boundary Wall (Y = -3.0m, Length = 8m) -->
+    <model name="wall_right">
+      <pose>1.0 -3.0 0.5 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>8 0.1 1</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>8 0.1 1</size></box></geometry>
+          <material><ambient>0.7 0.7 0.7 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Rear Boundary Wall (X = -3.0m, Length = 6m) -->
+    <model name="wall_back">
+      <pose>-3.0 0 0.5 0 0 1.5708</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>6 0.1 1</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>6 0.1 1</size></box></geometry>
+          <material><ambient>0.7 0.7 0.7 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Front Boundary Wall (X = 5.0m, Length = 6m) -->
+    <model name="wall_front">
+      <pose>5.0 0 0.5 0 0 1.5708</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>6 0.1 1</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>6 0.1 1</size></box></geometry>
+          <material><ambient>0.7 0.7 0.7 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ========================================== -->
+    <!-- Obstacle Environment                       -->
+    <!-- ========================================== -->
+
+    <!-- Static Obstacle: Grey Cylindrical Pillar -->
+    <model name="obstacle_pillar">
+      <pose>1.5 0.8 0.5 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><cylinder><radius>0.2</radius><length>1</length></cylinder></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><cylinder><radius>0.2</radius><length>1</length></cylinder></geometry>
+          <material><ambient>0.5 0.5 0.5 1</ambient></material> 
+        </visual>
+      </link>
+    </model>
+
+  </world>
+</sdf>

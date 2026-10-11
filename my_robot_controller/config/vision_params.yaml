@@ -1,0 +1,8 @@
+behavior_node:
+  ros__parameters:
+    kp_angular: 0.003
+    kp_linear: 0.000015
+    max_speed: 0.7
+    target_area: 100000.0
+    spin_time: 5.0
+    move_time: 3.0
