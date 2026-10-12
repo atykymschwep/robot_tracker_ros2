@@ -191,5 +191,6 @@ The robot uses a differential-drive configuration to move through the simulated 
 ---
 
 ## 📷 Example Output
-
+<img width="1341" height="823" alt="Screenshot from 2026-10-12 17-57-31" src="https://github.com/user-attachments/assets/fcbbed95-6744-4c46-881d-d3dc3ce69d5f" />
+<img width="1341" height="823" alt="Screenshot from 2026-10-12 17-57-21" src="https://github.com/user-attachments/assets/79bba3ef-f3db-4dcf-8185-cb8f45d6fb81" />
 
