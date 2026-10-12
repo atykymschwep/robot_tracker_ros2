@@ -1,0 +1,16 @@
+# C++ / Build artifacts
+*.o
+*.so
+*.a
+*.out
+
+# ROS 2 build directories 
+build/
+install/
+log/
+
+# IDE & OS files
+.vscode/
+.idea/
+*.swp
+.DS_Store
