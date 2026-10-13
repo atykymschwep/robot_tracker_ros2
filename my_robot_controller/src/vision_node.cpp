@@ -4,7 +4,7 @@ VisionTrackerNode::VisionTrackerNode() : Node("vision_tracker_node")
 {
     // Subscriber for the raw camera feed from Gazebo/real camera
     image_sub_ = this->create_subscription<sensor_msgs::msg::Image>(
-        "/my_camera/image_raw", 10,
+        "/camera/image_raw", 10,
         std::bind(&VisionTrackerNode::imageCallback, this, std::placeholders::_1));
 
     // Publisher for the processed image stream (useful for debugging in RViz/rqt)

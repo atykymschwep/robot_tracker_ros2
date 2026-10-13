@@ -108,7 +108,7 @@ source install/setup.bash
 Start the Gazebo environment, robot model, perception node, and behavior controller:
 
 ```bash
-ros2 launch my_robot_description robot_sim.launch.py
+ros2 launch my_robot_description sim.launch.py
 ```
 
 The robot will spawn in the simulated environment and begin processing camera and LiDAR data according to its behavior logic.
